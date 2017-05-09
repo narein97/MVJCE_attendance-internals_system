@@ -35,7 +35,7 @@ public class PDF {
     /**
      * @param args the command line arguments
      */
-    static String cl,sem,name,usn,internal;
+    static String cl,sem,name,usn,internal,dep,hod_name,hod_email;
     static String sub[] = new String[8];
     static String subcode[] = new String[8];
     static String intr[] = new String[8];static String att[] = new String[8];
@@ -43,13 +43,17 @@ public class PDF {
     public static void pdf(){
         try{System.out.println(internal);
         Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Sample_data", "root", "root");
+        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Info", "root", "root");
         Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        ResultSet info = st.executeQuery("select * from HOD where dept='"+dep+"'");
+        info.next();hod_name=info.getString("hod_name");hod_email=info.getString("hod_email");
+        con = DriverManager.getConnection("jdbc:mysql://localhost/Sample_data", "root", "root");
+        st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
         Statement st1 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
         //Statement st2 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
         //Statement st3 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
         //Statement st4 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet info = st.executeQuery("select Name,USN from Student_info where class='"+cl+"' and semester ='"+sem+"'");
+        info = st.executeQuery("select Name,USN from Student_info where class='"+cl+"' and semester ='"+sem+"'");
         //name=info.getString("Name");usn=info.getString("USN");
         ResultSet info1;// =st1.executeQuery("select c.sub1_name,c.sub2_name,c.sub3_name,c.sub4_name,c.sub5_name,c.sub6_name,c.sub7_name,c.sub8_name\n" +
 //"from Subject_names as c join Student_info as s on c.Course_code=s.Course_code where s.USN='1MJ10AE002'");
@@ -104,8 +108,8 @@ public class PDF {
         //Permanently affiliated para
         PdfPTable table = new PdfPTable(2);
         table.setWidthPercentage(100);
-        table.addCell(getCell("\n\n\nPermanently affiliated to VTU, Govt. of Karnataka\nApproved by AICTE, New Delhi\nNear ITPB, Bengaluru- 560067\n\nProf. Mahesh Prabhu, HOD - AE", PdfPCell.ALIGN_LEFT));
-        table.addCell(getCell("\n\n\n\nPh: 080-42991000\nFax: 080-28452443\nWebsite: www.mvjce.edu.in\nEmail: hod_aero@mvjce.edu.in\n\n", PdfPCell.ALIGN_RIGHT));
+        table.addCell(getCell("\n\n\nPermanently affiliated to VTU, Govt. of Karnataka\nApproved by AICTE, New Delhi\nNear ITPB, Bengaluru- 560067\n\n"+hod_name+", HOD - "+dep, PdfPCell.ALIGN_LEFT));
+        table.addCell(getCell("\n\n\n\nPh: 080-42991000\nFax: 080-28452443\nWebsite: www.mvjce.edu.in\nEmail: "+hod_email+"\n\n", PdfPCell.ALIGN_RIGHT));
         //line across pdf
         final LineSeparator lineSeparator = new LineSeparator();
         Chunk linebreak = new Chunk(lineSeparator);
@@ -130,7 +134,7 @@ public class PDF {
         Chunk glue1 = new Chunk(new VerticalPositionMark());
         Paragraph p3 = new Paragraph("\nSIGNATURE:\n\nNAME OF PROCTOR:\n\nCONTACT NUMBER:",new Font(FontFamily.TIMES_ROMAN, 10,Font.BOLD));
         p3.add(new Chunk(glue1));
-        p3.add(new Phrase("SIGNATURE OF HOD\n\n            Kindly attend the Parent Teacher Meeting to be held on the \n",new Font(FontFamily.TIMES_ROMAN, 10,Font.BOLD)));
+        p3.add(new Phrase("SIGNATURE OF HOD\n\n            Kindly attend the Parent Teacher Meeting to be held on the date informed to your ward.\n",new Font(FontFamily.TIMES_ROMAN, 10,Font.BOLD)));
         Phrase Note = new Phrase("\nNOTE:",new Font(FontFamily.TIMES_ROMAN, 10,Font.UNDERLINE|Font.BOLD));
         Paragraph p4 = new Paragraph();p4.add(Note);p4.add(new Phrase("  Parents are requested to contact the proctor (By Email/Letter/Phone) and confirm receipt of this feedback. Parents are also"
                 + "welcome to interact with proctors/subject faculty/ HOD for any discussion/clarification.\n",new Font(FontFamily.TIMES_ROMAN, 9)));

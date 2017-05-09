@@ -241,6 +241,7 @@ public class intAttend extends javax.swing.JFrame {
 
     private void b_nxtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_b_nxtActionPerformed
         // TODO add your handling code here:
+        ReportScreen.dep=l1.getText();
         ReportScreen reps = new ReportScreen();
         reps.setVisible(true);
         this.setVisible(false);

@@ -136,12 +136,13 @@ public class ReportScreen extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-
+    static String dep;
     String usn, sub1,sub2,sub3,sub4,sub5,sub6,sub7,sub8,name,section,sem,semester, sub1_name, sub1_code,sub1_class,sub1_ext;
     String  sub2_name, sub2_code,sub2_class,sub2_ext, sub3_name, sub3_code,sub3_class,sub3_ext, sub4_name, sub4_code,sub4_class,sub4_ext, sub5_name, sub5_code,sub5_class,sub5_ext, sub6_name, sub6_code,sub6_class,sub6_ext, sub7_name, sub7_code,sub7_class,sub7_ext, sub8_name, sub8_code,sub8_class,sub8_ext;
     int internal, scheme;
     
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        PDF.dep=ReportScreen.dep;
         PDF p = new PDF(); 
         p.sem=(String)jComboBox1.getSelectedItem();
         p.cl=jTextField2.getText();
