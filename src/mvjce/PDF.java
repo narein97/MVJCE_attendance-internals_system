@@ -175,24 +175,6 @@ public class PDF {
     
 public static PdfPTable createinternalsTable() {
     	// a table with five columns
-        //try{
-        /*Class.forName("com.mysql.jdbc.Driver");
-        Connection con = DriverManager.getConnection("jdbc:mysql://localhost/Sample_data", "root", "root");
-        Statement st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        Statement st1 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        Statement st2 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        Statement st3 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        Statement st4 = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        ResultSet info = st.executeQuery("select Name,USN from Student_info where class='"+cl+"' and semeter ='"+sem+"'");
-        ResultSet info1 =st1.executeQuery("select c.sub1_name,c.sub2_name,c.sub3_name,c.sub4_name,c.sub5_name,c.sub6_name,c.sub7_name,c.sub8_name\n" +
-"from Subject_names as c join Student_info as s on c.Course_code=s.Course_code where s.USN='1MJ10AE002'");
-        ResultSet info2 =st2.executeQuery("select c.sub1_code,c.sub2_code,c.sub3_code,c.sub4_code,c.sub5_code,c.sub6_code,c.sub7_code,c.sub8_code\n" +
-"from Scheme as c join Student_info as s on c.Course_code=s.Course_code where s.USN='1MJ10AE002'");
-        ResultSet info3 =st3.executeQuery("select s1.sub1_int1,s1.sub2_int1,s1.sub3_int1,s1.sub4_int1,s2.sub5_int1,s2.sub6_int1,s2.sub7_int1,s2.sub8_int1\n" +
-"from internals as s1 join internals2 as s2 on s1.USN=s2.USN where s1.USN='1MJ10AE002';");
-        ResultSet info4 = st4.executeQuery("select sub1_class,sub2_class,sub3_class,sub4_class,sub5_class,sub6_class,sub7_class,sub8_class\n" +
-"from attendance where USN='1MJ10AE002';");*/
-        
         PdfPTable table = new PdfPTable(5);
         float f[] = new float[]{0.5f,3f,1f,1f,1.5f};
         try{table.setWidths(f);}catch(Exception e){System.out.println(e);}

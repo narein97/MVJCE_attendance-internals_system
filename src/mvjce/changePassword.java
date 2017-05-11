@@ -48,36 +48,41 @@ public class changePassword extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
+        jLabel2.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(154, 79, 6));
         jLabel2.setText("Old Password");
         jLabel2.setInheritsPopupMenu(false);
-        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 240, -1, -1));
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 240, 90, -1));
 
+        jLabel3.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(154, 79, 6));
         jLabel3.setText("New Password");
-        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(250, 290, -1, -1));
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(240, 280, -1, -1));
 
+        jLabel4.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(154, 79, 6));
         jLabel4.setText("Retype New Password");
-        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 340, -1, -1));
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 320, -1, -1));
 
+        jLabel5.setFont(new java.awt.Font("Times New Roman", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(154, 79, 6));
         jLabel5.setText("Name of person changing password");
-        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 380, -1, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 360, -1, -1));
 
         p1.setSelectionColor(new java.awt.Color(255, 153, 0));
-        getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, 266, -1));
+        getContentPane().add(p1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 240, 266, -1));
 
         p2.setSelectionColor(new java.awt.Color(255, 153, 0));
         getContentPane().add(p2, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 280, 266, -1));
 
         p3.setSelectionColor(new java.awt.Color(255, 153, 0));
-        getContentPane().add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 330, 266, -1));
+        getContentPane().add(p3, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 320, 266, -1));
 
         tf1.setSelectionColor(new java.awt.Color(255, 153, 0));
-        getContentPane().add(tf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 370, 266, -1));
+        getContentPane().add(tf1, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 360, 266, -1));
 
         jButton1.setBackground(new java.awt.Color(255, 102, 0));
+        jButton1.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton1.setForeground(new java.awt.Color(153, 51, 0));
         jButton1.setText("Done!");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -88,6 +93,7 @@ public class changePassword extends javax.swing.JFrame {
         getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 430, -1, -1));
 
         jButton2.setBackground(new java.awt.Color(255, 102, 0));
+        jButton2.setFont(new java.awt.Font("Times New Roman", 1, 12)); // NOI18N
         jButton2.setForeground(new java.awt.Color(153, 51, 0));
         jButton2.setText("Reset");
         jButton2.addActionListener(new java.awt.event.ActionListener() {

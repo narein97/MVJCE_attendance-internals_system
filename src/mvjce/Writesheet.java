@@ -22,11 +22,11 @@ public class Writesheet
 {
     static int dept=0,sem=0;static String dept_name,sem_string,sec;
     static String [] sub = new String[8];//To be utilised when adding subject codes
-   public static void writesheet() throws Exception 
+   public static void writesheet()
    {
       
       XSSFWorkbook workbook = new XSSFWorkbook(); 
-      XSSFSheet spreadsheet = workbook.createSheet("test_excel");
+      XSSFSheet spreadsheet = workbook.createSheet(sem_string+sec);
       XSSFRow row = spreadsheet.createRow((short) 0);
       XSSFCell cell = (XSSFCell) row.createCell((short) 0);
       cell.setCellValue("MVJ College of Bangalore- 560067");
@@ -92,11 +92,11 @@ public class Writesheet
       cell.setCellStyle(style);
       spreadsheet.addMergedRegion(new CellRangeAddress(5, 5, 19, 19 ));
       Excel_operations.fill_exceldata(workbook,spreadsheet);
-      
+      try{
       FileOutputStream out = new FileOutputStream(
       new File("test_excel.xlsx"));
       workbook.write(out);
-      out.close();
+      out.close();}catch(Exception e){Database.print_error("Excel_output_stream");}
       System.out.println(
       "typesofcells.xlsx written successfully");
    
